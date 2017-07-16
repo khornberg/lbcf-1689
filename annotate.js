@@ -12,7 +12,7 @@ $(function() {
 			recalc: false,
 			toggle: false,
 			autohide: false,
-			disableScrolling: true,
+			disableScrolling: false,
 		});
 
 		$('.navmenu').on('show.bs.offcanvas', function() {
