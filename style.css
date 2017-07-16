@@ -119,16 +119,20 @@ a:hover {
     text-decoration: none;
 }
 
+.navmenu {
+    width: 250px;
+}
+
 @media only screen and (min-width: 480px) {
     .main {
-        width: 60%;
+        width: 70%;
         float: left;
         padding: 5%;
     }
     .cover {
         margin: 0 auto;
         background-color: #FF5750;
-        width: 60%;
+        width: 70%;
         float: left;
         padding: 5%;
         text-align: center;

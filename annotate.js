@@ -5,6 +5,31 @@ var mainColor = '#F9F7F3';
 var secondaryColor = '#FF5750';
 
 $(function() {
+	var mq = window.matchMedia("only screen and (min-width: 480px)");
+	if (!mq.matches) {
+		$('.navmenu').offcanvas({
+			canvas: '.canvas',
+			recalc: false,
+			toggle: false,
+			autohide: false,
+			disableScrolling: true,
+		});
+
+		$('.navmenu').on('show.bs.offcanvas', function() {
+			$('.side').show();
+		});
+
+		$('.navmenu').on('hidden.bs.offcanvas', function() {
+			$('.side').hide();
+		});
+
+		$('.navmenu').on('shown.bs.offcanvas', function() {
+			$('.canvas').on('click', function() {
+				$('.navmenu').offcanvas('hide');
+			});
+		});
+	}
+
 	$.getJSON('verses.json', function(data) {
 		verses = data;
 	});
@@ -32,6 +57,10 @@ $(function() {
 	$('.ref').on('click', function() {
 		if (currentRef) {
 			unHighlight(currentRef);
+		}
+
+		if (!mq.matches) {
+			$('.navmenu').offcanvas('show');
 		}
 
 		$(this).css('background-color', secondaryColor);
